@@ -2,13 +2,11 @@ import React, { useState } from "react";
 
 export default function TextForm(props) {
   const handleUpClick = () => {
-    // console.log("Uppercase was clicked");
     let newText = text.toUpperCase();
     setText(newText);
     props.showAlert("Converted to uppercase!", "success");
   };
   const handleLoClick = () => {
-    // console.log("Uppercase was clicked");
     let newText = text.toLowerCase();
     setText(newText);
     props.showAlert("Converted to lowercase!", "success");
@@ -19,10 +17,7 @@ export default function TextForm(props) {
     props.showAlert("Text Cleared!", "success");
   };
   const handleCopyClick = () => {
-    var text = document.getElementById("MyBox");
-    text.select();
-    document.getSelection().removeAllRanges();
-    navigator.clipboard.writeText(text.value);
+    navigator.clipboard.writeText(text);
     props.showAlert("Text Copied!", "success");
   };
   const handleCsClick = () => {
@@ -31,7 +26,6 @@ export default function TextForm(props) {
     props.showAlert("Extra spaces removed!", "success");
   };
   const handleOnChange = (event) => {
-    // console.log("On Change");
     setText(event.target.value);
   };
 
@@ -78,7 +72,7 @@ export default function TextForm(props) {
       >
         <h2>Your text summary</h2>
         <p>
-          {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters
+          {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters
         </p>
         <p> {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes to read</p>
         <h2>Preview</h2>
