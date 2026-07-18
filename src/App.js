@@ -5,7 +5,7 @@ import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import React, { useState } from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light"); //wether dark mode is enabled or not
@@ -41,59 +41,59 @@ function App() {
     }
   };
 
-//   return (
-//     <>
-//       <Router>
-//         <Navbar
-//           title="TextUtil"
-//           aboutText="About TextUtils"
-//           mode={mode}
-//           toggleMode={toggleMode}
-//         />
+  return (
+    <>
+      <Router>
+        <Navbar
+          title="TextUtil"
+          aboutText="About TextUtils"
+          mode={mode}
+          toggleMode={toggleMode}
+        />
 
-//         <Alert alert={alert} />
-//         <div className="container my-3">
-//           <Routes>
-//             <Route path="/about" element={<About />}/>
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Routes>
+            <Route path="/about" element={<About />}/>
 
-//             <Route path="/"
-//             element = 
-//               {<TextForm
-//                 showAlert={showAlert}
-//                 heading="Enter the text to analyze below"
-//                 mode={mode}
-//               />}
-//               />
+            <Route path="/"
+            element = 
+              {<TextForm
+                showAlert={showAlert}
+                heading="Enter the text to analyze below"
+                mode={mode}
+              />}
+              />
               
-//           </Routes>
-//         </div>
-//       </Router>
-//     </>
-//   );
-// }
-
-return (
-  <>
-    <Navbar
-      title="TextUtil"
-      aboutText="About TextUtils"
-      mode={mode}
-      toggleMode={toggleMode}
-    />
-
-    <Alert alert={alert} />
-
-    <div className="container my-3">
-      <TextForm
-        showAlert={showAlert}
-        heading="Enter the text to analyze below"
-        mode={mode}
-      />
-
-      {/* <About /> */}
-    </div>
-  </>
-);
+          </Routes>
+        </div>
+      </Router>
+    </>
+  );
 }
+
+// return (
+//   <>
+//     <Navbar
+//       title="TextUtil"
+//       aboutText="About TextUtils"
+//       mode={mode}
+//       toggleMode={toggleMode}
+//     />
+
+//     <Alert alert={alert} />
+
+//     <div className="container my-3">
+//       <TextForm
+//         showAlert={showAlert}
+//         heading="Enter the text to analyze below"
+//         mode={mode}
+//       />
+
+//       {/* <About /> */}
+//     </div>
+//   </>
+// );
+// }
 
 export default App;
